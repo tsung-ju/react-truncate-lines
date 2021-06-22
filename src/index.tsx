@@ -44,11 +44,12 @@ function lastIndexWhere(
 ): number {
   // invariant: f(start) == true && f(end + 1) == false
   while (start < end) {
-    const mid = Math.floor((start + end) / 2);
-    if (predicate(mid)) {
-      start = mid;
+    const mid = (start + end) >> 1;
+    // start <= mid < end
+    if (predicate(mid + 1)) {
+      start = mid + 1;
     } else {
-      end = mid - 1;
+      end = mid;
     }
   }
   return start;
