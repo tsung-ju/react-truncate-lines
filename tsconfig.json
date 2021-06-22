@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "lib",
+    "outDir": "dist",
 
-    "module": "esnext",
     "target": "es5",
     "declaration": true,
     "lib": ["dom", "es5"],

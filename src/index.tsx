@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { onlyText } from "react-children-utilities";
+import onlyText from "react-children-utilities/lib/onlyText.js";
 
-export interface TruncateLinesProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TruncateLinesProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
   lines: number;
   ellipsis: React.ReactNode;
 }
