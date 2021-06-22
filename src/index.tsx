@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import onlyText from "react-children-utilities/lib/onlyText.js";
+import React, { Children, useEffect, useRef } from "react";
 
 export interface TruncateLinesProps
   extends React.HTMLAttributes<HTMLSpanElement> {
@@ -53,4 +52,16 @@ function lastIndexWhere(
     }
   }
   return start;
+}
+
+function onlyText(children: React.ReactNode): string {
+  let result = "";
+  Children.forEach(children, (child) => {
+    if (typeof child === "number" || typeof child === "string") {
+      result += child.toString();
+    } else {
+      throw new TypeError("Unexpected child type");
+    }
+  });
+  return result;
 }

@@ -26,9 +26,7 @@
     "react": "17.x.x || 16.x.x || 15.x.x"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.0",
     "@types/react": "^17.0.11",
-    "react-children-utilities": "^2.5.3",
     "rollup": "^2.52.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "tslib": "^2.3.0",
