@@ -13,7 +13,7 @@ npm install react-truncate-lines
 API is similar to [react-truncate](https://www.npmjs.com/package/react-truncate).
 
 ```js
-import TruncateLines from "react-truncate-lines";
+import { TruncateLines } from "react-truncate-lines";
 
 function MyComponent() {
   return (
