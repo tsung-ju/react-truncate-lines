@@ -25,7 +25,7 @@ export function TruncateLines({
       return length == 0 || span.getClientRects().length <= lines;
     });
     textNode.nodeValue = text.slice(0, newLength);
-  });
+  }, [lines, ellipsis, text]);
   return (
     <span ref={spanRef} {...rest}>
       {text}
