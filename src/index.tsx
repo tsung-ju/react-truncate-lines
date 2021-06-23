@@ -43,7 +43,7 @@ function lastIndexWhere(
 ): number {
   // invariant: f(start) == true && f(end + 1) == false
   while (start < end) {
-    const mid = (start + end) >> 1;
+    const mid = start + ((end - start) >> 1);
     // start <= mid < end
     if (predicate(mid + 1)) {
       start = mid + 1;
