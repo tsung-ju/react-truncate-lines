@@ -22,7 +22,7 @@ export function TruncateLines({
     const textNode = span.firstChild!;
     const newLength = lastIndexWhere(0, text.length, (length) => {
       textNode.nodeValue = text.slice(0, length);
-      return length == 0 || span.getClientRects().length <= lines;
+      return length === 0 || span.getClientRects().length <= lines;
     });
     textNode.nodeValue = text.slice(0, newLength);
   }, [lines, ellipsis, text]);
