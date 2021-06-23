@@ -41,7 +41,7 @@ function lastIndexWhere(
   end: number,
   predicate: (index: number) => boolean
 ): number {
-  // invariant: f(start) == true && f(end + 1) == false
+  // invariant: predicate(start) === true && predicate(end + 1) === false
   while (start < end) {
     const mid = start + ((end - start) >> 1);
     // start <= mid < end
