@@ -12,7 +12,7 @@ function DemoPage() {
 
   return (
     <main>
-      <form>
+      <form autoComplete="off">
         <input
           type="number"
           min="1"
