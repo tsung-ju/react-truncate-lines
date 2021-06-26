@@ -50,7 +50,7 @@ function DemoPage() {
       <div style={{ width: "100px" }}>
         <TruncateLines
           lines={lines}
-          ellipsis={<span>...ReadMore</span>}
+          ellipsis={<span style={{ color: "blue" }}>...ReadMore</span>}
           style={{ whiteSpace, lineBreak }}
         >
           {text}
