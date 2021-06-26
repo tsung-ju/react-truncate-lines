@@ -51,7 +51,7 @@ function DemoPage() {
         <TruncateLines
           lines={lines}
           ellipsis={
-            <span style={{ color: "blue" }} onClick={() => setLines(Infinity)}>
+            <span style={{ color: "blue" }} onClick={() => setLines(lines => lines + 10)}>
               ...ReadMore
             </span>
           }
