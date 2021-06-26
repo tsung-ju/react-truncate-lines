@@ -2,8 +2,8 @@ import React, { Children, useEffect, useRef } from "react";
 
 export interface TruncateLinesProps
   extends React.HTMLAttributes<HTMLSpanElement> {
-  lines: number;
-  ellipsis: React.ReactNode;
+  lines?: number;
+  ellipsis?: React.ReactNode;
 }
 
 export function TruncateLines({
