@@ -51,11 +51,14 @@ function DemoPage() {
         <TruncateLines
           lines={lines}
           ellipsis={
-            <span style={{ color: "blue" }} onClick={() => setLines(lines => lines + 10)}>
+            <span
+              style={{ color: "blue" }}
+              onClick={() => setLines((lines) => lines + 10)}
+            >
               ...ReadMore
             </span>
           }
-          style={{ whiteSpace, lineBreak }}
+          style={{ whiteSpace, lineBreak, outline: "solid 1px" }}
         >
           {text}
         </TruncateLines>
