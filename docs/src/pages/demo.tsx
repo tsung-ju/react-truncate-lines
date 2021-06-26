@@ -9,18 +9,28 @@ function DemoPage() {
     useState<React.CSSProperties["whiteSpace"]>("pre-line");
   const [lineBreak, setLineBreak] =
     useState<React.CSSProperties["lineBreak"]>("auto");
+  const [showOutline, setShowOutline] = useState<boolean>(false);
 
   return (
     <main>
       <form autoComplete="off">
+        <label htmlFor="lines">lines</label>
         <input
+          id="lines"
           type="number"
           min="1"
           value={lines}
           onChange={(e) => setLines(parseInt(e.target.value))}
         />
-        <textarea value={text} onChange={(e) => setText(e.target.value)} />
+        <label htmlFor="text">text</label>
+        <textarea
+          id="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <label htmlFor="white-space">white-space</label>
         <select
+          id="white-space"
           value={whiteSpace}
           onChange={(e) =>
             setWhiteSpace(e.target.value as React.CSSProperties["whiteSpace"])
@@ -33,7 +43,9 @@ function DemoPage() {
           <option>pre-line</option>
           <option>break-spaces</option>
         </select>
+        <label htmlFor="line-break">line-break</label>
         <select
+          id="line-break"
           value={lineBreak}
           onChange={(e) =>
             setLineBreak(e.target.value as React.CSSProperties["lineBreak"])
@@ -45,6 +57,13 @@ function DemoPage() {
           <option>strict</option>
           <option>anywhere</option>
         </select>
+        <label htmlFor="outline">outline</label>
+        <input
+          id="outline"
+          type="checkbox"
+          checked={showOutline}
+          onChange={(e) => setShowOutline(e.target.checked)}
+        />
       </form>
       <hr />
       <div style={{ width: "500px" }}>
@@ -58,7 +77,11 @@ function DemoPage() {
               ...ReadMore
             </span>
           }
-          style={{ whiteSpace, lineBreak, outline: "solid 1px" }}
+          style={{
+            whiteSpace,
+            lineBreak,
+            outline: showOutline ? "solid 1px" : "initial",
+          }}
         >
           {text}
         </TruncateLines>
