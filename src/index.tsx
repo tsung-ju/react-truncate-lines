@@ -12,24 +12,31 @@ export function TruncateLines({
   children,
   ...rest
 }: TruncateLinesProps) {
-  const spanRef = useRef<HTMLSpanElement>(null);
-  const ellipsisRef = useRef<HTMLSpanElement>(null);
+  const rootSpanRef = useRef<HTMLSpanElement>(null);
+  const ellipsisSpanRef = useRef<HTMLSpanElement>(null);
   const text = onlyText(children);
+
   useEffect(() => {
-    const span = spanRef.current!;
-    if (span.getClientRects().length <= lines) return;
-    ellipsisRef.current!.style.display = "inline-block";
-    const textNode = span.firstChild!;
+    const rootSpan = rootSpanRef.current!;
+    const ellipsisSpan = ellipsisSpanRef.current!;
+    const textNode = rootSpan.firstChild!;
+
+    ellipsisSpan.style.display = "none";
+    textNode.nodeValue = text;
+    if (rootSpan.getClientRects().length <= lines) return;
+
+    ellipsisSpan.style.display = "inline-block";
     const newLength = lastIndexWhere(0, text.length, (length) => {
       textNode.nodeValue = text.slice(0, length);
-      return length === 0 || span.getClientRects().length <= lines;
+      return length === 0 || rootSpan.getClientRects().length <= lines;
     });
     textNode.nodeValue = text.slice(0, newLength);
   }, [lines, ellipsis, text]);
+
   return (
-    <span ref={spanRef} {...rest}>
+    <span ref={rootSpanRef} {...rest}>
       {text}
-      <span ref={ellipsisRef} style={{ display: "none" }}>
+      <span ref={ellipsisSpanRef} style={{ display: "none" }}>
         {ellipsis}
       </span>
     </span>
