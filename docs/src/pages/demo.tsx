@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TruncateLines } from "react-truncate-lines";
+import "water.css/out/water.css";
 
 function DemoPage() {
   const [lines, setLines] = useState<number>(1);
