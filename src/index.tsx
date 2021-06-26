@@ -21,6 +21,8 @@ export function TruncateLines({
     const ellipsisSpan = ellipsisSpanRef.current!;
     const textNode = rootSpan.firstChild!;
 
+    fixWebKitClientRects(rootSpan);
+
     ellipsisSpan.style.display = "none";
     textNode.nodeValue = text;
     if (rootSpan.getClientRects().length <= lines) return;
@@ -71,4 +73,17 @@ function onlyText(children: React.ReactNode): string {
     }
   });
   return result;
+}
+
+function fixWebKitClientRects(element: HTMLElement) {
+  const s = element.style;
+  const styleValue = s.getPropertyValue("outline-style");
+  const stylePriority = s.getPropertyPriority("outline-style");
+  const widthValue = s.getPropertyValue("outline-width");
+  const widthPriority = s.getPropertyPriority("outline-width");
+  s.setProperty("outline-style", "solid", "important");
+  s.setProperty("outline-width", "1px", "important");
+  element.getClientRects();
+  s.setProperty("outline-style", styleValue, stylePriority);
+  s.setProperty("outline-width", widthValue, widthPriority);
 }
