@@ -14,6 +14,13 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
+      - name: Gatsby Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            docs/.cache
+            docs/public
+          key: ${{ runner.os }}-gatsby
       - name: Build
         run: |
           npm install
