@@ -1,6 +1,6 @@
 # react-truncate-lines
 
-React component for text truncation.
+React component for text truncation. Number of lines is measured using [Element.getClientRects()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects).
 
 ## Install
 
