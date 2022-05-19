@@ -15,14 +15,14 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "gatsby": "^3.8.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "gatsby": "^4.14.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-truncate-lines": "file:..",
     "water.css": "^2.0.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8"
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4"
   }
 }
